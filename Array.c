@@ -141,8 +141,9 @@ printf("Enter The Size of Array : ");scanf("%d",&size);
 int *A=(int *)malloc(size*sizeof(int));int ch;
 for(;;)
 {
-printf("\n1.Insert By Position\n2.Delete By Position\n3.Insert By Key\n4.Delete By Key\n5.Insert by Order\n6.
-Search by Key\n7.Search by position\n8.Reverse\nEnter choice : ");scanf("%d",&ch);
+printf("1.Insert By Position\n2.Delete By Position\n3.Insert By Key\n4.Delete By Key\n5.Insert by Order\n");
+printf("6.Search by Key\n7.Search by position\n8.Reverse\nEnter choice : ");
+scanf("%d",&ch);
 switch(ch)
 {
 case 1:A=insertbypos(A);display(A);break;
