@@ -98,8 +98,8 @@ printf("Enter The Size of Array : ");scanf("%d",&size);
 int *A=(int *)malloc(size*sizeof(int));int ch;
 for(;;)
 {
-printf("1.Insert By Position\n2.Delete By Position\n3.Insert By Key\n4.Delete By Key\n5.Insert by Order\n");
-printf("6.Search by Key\n7.Search by position\n8.Reverse\nEnter choice : ");
+printf("1.Insert By Order\n2.Delete By Position\n3.Search By Key\n4.Reverse\n");
+printf("Enter choice : ");
 scanf("%d",&ch);
 switch(ch)
 {
