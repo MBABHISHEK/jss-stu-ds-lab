@@ -24,23 +24,6 @@ printf("Enter The Item : ");scanf("%d",&item);
 n++;
 return p;
 }
-void deletebypos(int *p)
-{
-if(n==0)
-{
-printf("Empty\n");return;
-}
-int pos;
-L1:printf("Enter Position between 1 to %d : ",n);scanf("%d",&pos);
-if(pos<1 || pos>n) goto L1;
-int i;
-printf("Deleted %d\n",*(p+pos-1));
-for(i=pos-1;i<n-1;i++)
-{
-*(p+i)=*(p+i+1);
-}
-n--;
-}
 void display(int *p)
 {
 if(n==0)
@@ -51,25 +34,6 @@ return;
 for(int i=0;i<n;i++)
 printf("%d ",*(p+i));
 printf("\n");
-}
-void insertbyorder(int *p)
-{
-if(n==size)
-{
-printf("Array Full\nReallocating\n");
-p=((int *)realloc(p,2*size));
-}
-int item;
-printf("Enter The Item : ");scanf("%d",&item);
-
-int j=n-1;
-while(j>=0 && *(p+j)>item)
-{
-*(p+j+1)=*(p+j);
-j--;
-}
-*(p+j+1)=item;
-n++;
 }
 void reverse(int *p)
 {
@@ -141,19 +105,14 @@ printf("Enter The Size of Array : ");scanf("%d",&size);
 int *A=(int *)malloc(size*sizeof(int));int ch;
 for(;;)
 {
-printf("1.Insert By Position\n2.Delete By Position\n3.Insert By Key\n4.Delete By Key\n5.Insert by Order\n");
-printf("6.Search by Key\n7.Search by position\n8.Reverse\nEnter choice : ");
+printf("1.Insert By Position\n2.Delete By Key\n3.Search By Pos\n4.Reverse\n");
 scanf("%d",&ch);
 switch(ch)
 {
 case 1:A=insertbypos(A);display(A);break;
-case 2:deletebypos(A);display(A);break;
-case 3:insertbyorder(A);display(A);break;
-case 5:insertbyorder(A);display(A);break;
-case 4:deletebykey(A);display(A);break;
-case 6:searchbykey(A);break;
-case 7:searchbypos(A);break;
-case 8:reverse(A);display(A);break;
+case 2:deletebykey(A);display(A);break;
+case 4:searchbypos(A);break;
+case 3:reverse(A);display(A);break;
 default:exit(0);
 }
 }
