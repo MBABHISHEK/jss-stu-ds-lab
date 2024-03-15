@@ -83,18 +83,44 @@ if(tp==ph)
 printf("Element Not Found\n");
 }
 }
+void deletebykey(NODE ph)
+{
+if(ph->info==0)
+{
+printf("Empty\n");
+return;
+}
+
+int key;NODE tp=ph->link,pn=ph;
+printf("Enter the Element : ");scanf("%d",&key);
+ph->info--;
+while(tp!=ph)
+{
+if(tp->info==key)
+{
+pn->link=tp->link;
+printf("Deleted %d\n",tp->info);
+free(tp);return;
+}
+pn=tp;
+tp=tp->link;
+}
+}
+
+
 void main()
 {
 NODE header=((NODE)malloc(sizeof(struct node)));
 header->link=header;int ch;header->info=0;
 for(;;)
 {
-printf("\n1.Insert By Order\n2.Delete By Position\n3.Search by Key\nEnter choice : ");scanf("%d",&ch);
+printf("\n1.Insert By Order\n2.Delete By Position\n3.Search by Key\n4.Delete By Key\nEnter choice : ");scanf("%d",&ch);
 switch(ch)
 {
 case 1:insertbyorder(header);display(header);break;
 case 2:deletebypos(header);display(header);break;
 case 3:searchbykey(header);break;
+case 4:deletebykey(header);display(header);break;
 default:exit(0);
 }
 }
