@@ -66,6 +66,27 @@ printf("%d ",tp->info);
 tp=tp->link;
 }
 }
+
+
+void searchbypos(NODE ph) {
+    if (ph->info == 0) {
+        printf("Empty\n");
+        return;
+    }
+    int pos, i = 1;
+L1:
+    printf("Enter Position between 1 to %d : ", ph->info);
+    scanf("%d", &pos);
+    if (pos < 1 || pos > ph->info)
+        goto L1;
+    NODE tp = ph->link;
+    while (i < pos) {
+        ph = tp;
+        tp = tp->link;
+        i++;
+    }
+    printf("THE ELEMENT AT THE POSITION %d is %d\n", pos, tp->info);
+}
 void main()
 {
 NODE header=((NODE)malloc(sizeof(struct node)));
@@ -78,7 +99,7 @@ switch(ch)
 case 1:insertfront(header);display(header);break;
 case 2:insertrear(header);display(header);break;
 case 3:deletebykey(header);display(header);break;
-//case 4:searchbypos(header);break;
+case 4:searchbypos(header);break;
 default:exit(0);
 }
 }
