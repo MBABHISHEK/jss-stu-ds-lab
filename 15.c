@@ -135,8 +135,7 @@ int ch;
 for(;;)
 
 {
-printf("1.Tree Construction\n2.Inorder\n3.PreOrder\n4.PostOrder\n5.Search by Key\n
-6.Delete By Key\nEnter Your Choice:");
+printf("1.Tree Construction\n2.Inorder\n3.PreOrder\n4.PostOrder\n5.Search by Key\n6.Delete By Key\nEnter Your Choice:");
 scanf("%d",&ch);
 switch(ch)
 {
