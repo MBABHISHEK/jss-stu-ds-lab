@@ -56,8 +56,8 @@ void preorder(NODE r)
 if(r==NULL)
 return;
 printf("%d ",r->info);
-postorder(r->LL);
-postorder(r->RL);
+preorder(r->LL);
+preorder(r->RL);
 }
 int count(NODE r)
 {
